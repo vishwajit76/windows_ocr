@@ -105,15 +105,20 @@ namespace {
 			return "";
 		};
 		n = NsOCR->Img_GetImgText(ImgObj, NULL, 0, FMT_EXACTCOPY) + 1; //get length in unicode characters plus terminating NULL character
-		txt = (wchar_t*)malloc(2 * n); //allocate memory for text
+		//txt = (wchar_t*)malloc(2 * n); //allocate memory for text
+		txt = (wchar_t*) malloc(sizeof(wchar_t) * n); //allocate memory for text
 		NsOCR->Img_GetImgText(ImgObj, txt, n, FMT_EXACTCOPY); //get text
 		NsOCR->Engine_Uninitialize(); //release all created objects and uninitialize OCR engine
 
 		std::string s = wchar2string(txt);
+		//std::string s = toUtf8(wchar2string(txt));
+
 		free(txt); //free memory
 		wcout << s.c_str() << endl;
+
 		return s;
 	}
+
 
 
 	std::string getMrz(std::string file, std::string fileMrz) {
