@@ -2,7 +2,7 @@
 
 OCR library that allows developers to easily embed high-quality optical character recognition functionality in their products.
 
-# List of Features
+## List of Features
 
 * Supports many image formats, including such popular ones as BMP, JPEG, PNG, TIFF, and GIF.
 * Supports PDF files (by default, GhostScript is used)

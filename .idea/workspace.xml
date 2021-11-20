@@ -2,23 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6661a31-3d58-4b31-81cf-56e912c6f1a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/integration_test/app_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/integration_test/app_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/lib/Barcode.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/lib/Barcode.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/lib/Mrz.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/lib/Mrz.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/example/windows/flutter/generated_plugins.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/lib/windows_ocr.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/lib/windows_ocr.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/windows/windows_ocr_plugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/windows/windows_ocr_plugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Barcode.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Barcode.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Mrz.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Mrz.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/windows_ocr.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/windows_ocr.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/windows_ocr_plugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/windows/windows_ocr_plugin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +48,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager" selected="Flutter.example/lib/main.dart">
@@ -79,21 +87,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="175" key="GridCell.Tab.0.bottom" timestamp="1609499222806">
+    <state x="184" y="8" key="SettingsEditor" timestamp="1637422795988">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="175" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609499222806" />
-    <state width="1323" height="175" key="GridCell.Tab.0.center" timestamp="1609499222805">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="175" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1609499222805" />
-    <state width="1323" height="175" key="GridCell.Tab.0.left" timestamp="1609499222805">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="175" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1609499222805" />
-    <state width="1323" height="175" key="GridCell.Tab.0.right" timestamp="1609499222805">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="175" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1609499222805" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1637422795988" />
   </component>
 </project>
