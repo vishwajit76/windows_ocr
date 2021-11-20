@@ -1,4 +1,4 @@
-import 'package:file_chooser/file_chooser.dart';
+import 'package:file_picker_cross/file_picker_cross.dart';
 import 'package:flutter/material.dart';
 import 'package:windows_ocr/Barcode.dart';
 import 'package:windows_ocr/Languages.dart';
@@ -83,11 +83,19 @@ class _MyBarcodeState extends State<MyBarcode> {
     List<Barcode> listBarcode = [];
     // Platform messages may fail, so we use a try/catch.
     try {
-      FileChooserResult result =
-          await showOpenPanel(allowsMultipleSelection: false);
-      if (!result.canceled) {
-        listBarcode = await WindowsOcr.getBarcode(result.paths[0]);
-      }
+      // FileChooserResult result =
+      //     await showOpenPanel(allowsMultipleSelection: false);
+      // if (!result.canceled) {
+      //   listBarcode = await WindowsOcr.getBarcode(result.paths[0]);
+      // }
+
+      FilePickerCross.importFromStorage(
+              type: FileTypeCross
+                  .image, // Available: `any`, `audio`, `image`, `video`, `custom`. Note: not available using FDE
+              fileExtension: '')
+          .then((filePicker) async {
+        listBarcode = await WindowsOcr.getBarcode(filePicker.path!);
+      });
     } catch (error) {
       debugPrint('Error: $error');
     }
@@ -146,14 +154,32 @@ class _MyOcr extends State<MyOcr> {
     });
 
     String ocr = '';
+    print("orc start");
     // Platform messages may fail, so we use a try/catch.
     try {
-      FileChooserResult result =
-          await showOpenPanel(allowsMultipleSelection: false);
-      if (!result.canceled) {
-        ocr = await WindowsOcr.getOcr(result.paths[0],
+      FilePickerCross.importFromStorage(
+              type: FileTypeCross
+                  .image, // Available: `any`, `audio`, `image`, `video`, `custom`. Note: not available using FDE
+              fileExtension: '')
+          .then((filePicker) async {
+        print("orc file path - ${filePicker.path!}");
+
+        ocr = await WindowsOcr.getOcr(filePicker.path!,
             language: Languages.English);
-      }
+
+        print("orc data - ${ocr}");
+
+        setState(() {
+          _ocr = ocr;
+        });
+      });
+
+      // FileChooserResult result =
+      //     await showOpenPanel(allowsMultipleSelection: false);
+      // if (!result.canceled) {
+      //   ocr = await WindowsOcr.getOcr(result.paths[0],
+      //       language: Languages.English);
+      // }
     } catch (error) {
       debugPrint('Error: $error');
     }
@@ -177,7 +203,8 @@ class _MyOcr extends State<MyOcr> {
         title: const Text('OCR'),
       ),
       body: Center(
-        child: isLoading ? CircularProgressIndicator() : Text('$_ocr'),
+        child:
+            isLoading ? CircularProgressIndicator() : Text('ocr data - $_ocr'),
       ),
     );
   }
@@ -189,7 +216,7 @@ class MyMrz extends StatefulWidget {
 }
 
 class _MyMrz extends State<MyMrz> {
-  Mrz _mrz;
+  Mrz? mrz;
   bool isLoading = false;
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -198,21 +225,29 @@ class _MyMrz extends State<MyMrz> {
       isLoading = true;
     });
 
-    Mrz mrz;
+    Mrz? mrz;
     // Platform messages may fail, so we use a try/catch.
     try {
-      FileChooserResult result =
-          await showOpenPanel(allowsMultipleSelection: false);
-      if (!result.canceled) {
-        mrz = await WindowsOcr.getMrz(result.paths[0]);
-      }
+      // FileChooserResult result =
+      //     await showOpenPanel(allowsMultipleSelection: false);
+      // if (!result.canceled) {
+      //   mrz = await WindowsOcr.getMrz(result.paths[0]);
+      // }
+
+      FilePickerCross.importFromStorage(
+              type: FileTypeCross
+                  .image, // Available: `any`, `audio`, `image`, `video`, `custom`. Note: not available using FDE
+              fileExtension: '')
+          .then((filePicker) async {
+        mrz = await WindowsOcr.getMrz(filePicker.path!);
+      });
     } catch (error) {
       debugPrint('Error: $error');
     }
 
     setState(() {
       isLoading = false;
-      _mrz = mrz;
+      mrz = mrz;
     });
   }
 
@@ -235,9 +270,9 @@ class _MyMrz extends State<MyMrz> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(_mrz.lastName),
-                  Text(_mrz.name),
-                  Text(_mrz.docNumber)
+                  Text(mrz!.lastName),
+                  Text(mrz!.name),
+                  Text(mrz!.docNumber)
                 ],
               ),
       ),

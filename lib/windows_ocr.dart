@@ -17,6 +17,7 @@ class WindowsOcr {
       'path': filePath,
       'language': 'Languages/$language',
     });
+    print("_channel orc data - $res");
     return res;
   }
 

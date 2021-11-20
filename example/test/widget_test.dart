@@ -7,7 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:windows_ocr_example/main.dart';
 
 void main() {
@@ -18,8 +17,8 @@ void main() {
     // Verify that platform version is retrieved.
     expect(
       find.byWidgetPredicate(
-        (Widget widget) => widget is Text &&
-                           widget.data.startsWith('Result :'),
+        (Widget widget) =>
+            widget is Text && widget.data!.startsWith('Result :'),
       ),
       findsOneWidget,
     );
