@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/example/winuwp/flutter/ephemeral/.plugin_symlinks/windows_ocr" vcs="Git" />
   </component>
 </project>

@@ -13,12 +13,22 @@ class WindowsOcr {
   static const MethodChannel _channel = const MethodChannel('windows_ocr');
 
   static Future<String> getOcr(String filePath, {language = "English"}) async {
-    final String res = await _channel.invokeMethod('getOcr', <String, dynamic>{
+    final Map<dynamic, dynamic> data =
+        await _channel.invokeMethod('getOcr', <String, dynamic>{
       'path': filePath,
       'language': 'Languages/$language',
     });
-    print("_channel orc data - $res");
-    return res;
+
+    final newData = Map<String, dynamic>.from(data);
+
+    if (newData.containsKey("ocr")) {
+      String ocr = newData["ocr"] ?? "";
+      print("flutter _channel orc data - $ocr");
+      return ocr;
+    } else {
+      print("flutter _channel orc data not found");
+      return "";
+    }
   }
 
   static Future<Mrz?> getMrz(String filePath) async {

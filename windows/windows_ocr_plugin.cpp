@@ -15,8 +15,23 @@
 #include <fstream>
 #include <sstream>
 
+#include <cstdio>
+#include <locale>
+#include <cstdint>
+#include <iostream>
+#include <io.h>
+#include <stdio.h>
+
+
+
 using namespace std;
 namespace {
+
+    using flutter::EncodableList;
+    using flutter::EncodableMap;
+    using flutter::EncodableValue;
+
+
 
 	class WindowsOcrPlugin : public flutter::Plugin {
 	public:
@@ -55,6 +70,7 @@ namespace {
 
 	WindowsOcrPlugin::~WindowsOcrPlugin() {}
 
+
 	std::string wchar2string(wchar_t* str)
 	{
 		std::string mystring;
@@ -63,6 +79,7 @@ namespace {
 
 		return  mystring;
 	}
+
 
 	std::string getOcr(std::string file, std::string language) {
 		TNSOCR* NsOCR;
@@ -280,6 +297,63 @@ namespace {
 		return pl;
 	}
 
+
+	// Converts the given UTF-8 string to UTF-16.
+    std::wstring Utf16FromUtf8(const std::string &utf8_string) {
+      if (utf8_string.empty()) {
+        return std::wstring();
+      }
+      int target_length =
+          ::MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8_string.data(),
+                                static_cast<int>(utf8_string.length()), nullptr, 0);
+      if (target_length == 0) {
+        return std::wstring();
+      }
+      std::wstring utf16_string;
+      utf16_string.resize(target_length);
+      int converted_length =
+          ::MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, utf8_string.data(),
+                                static_cast<int>(utf8_string.length()),
+                                utf16_string.data(), target_length);
+      if (converted_length == 0) {
+        return std::wstring();
+      }
+      return utf16_string;
+    }
+
+
+    std::string Utf8FromUtf16(const wchar_t* utf16_string) {
+      if (utf16_string == nullptr) {
+        return std::string();
+      }
+      int target_length = ::WideCharToMultiByte(
+          CP_UTF8, WC_ERR_INVALID_CHARS, utf16_string,
+          -1, nullptr, 0, nullptr, nullptr);
+      if (target_length == 0) {
+        return std::string();
+      }
+      std::string utf8_string;
+      utf8_string.resize(target_length);
+      int converted_length = ::WideCharToMultiByte(
+          CP_UTF8, WC_ERR_INVALID_CHARS, utf16_string,
+          -1, utf8_string.data(),
+          target_length, nullptr, nullptr);
+      if (converted_length == 0) {
+        return std::string();
+      }
+      return utf8_string;
+    }
+
+    bool invalidChar (char c)
+    {
+        return !(c>=0 && c <128);
+    }
+
+    void stripUnicode(string & str)
+    {
+        str.erase(remove_if(str.begin(),str.end(), invalidChar), str.end());
+    }
+
 	void WindowsOcrPlugin::HandleMethodCall(
 		const flutter::MethodCall<flutter::EncodableValue>& method_call,
 		std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
@@ -296,8 +370,24 @@ namespace {
 			if (va != arguments->end()) {
 				language = std::get<std::string>(va->second);
 			}
+            //result->Success(flutter::EncodableValue(getOcr(file, language).c_str()));
+             //wchar_t* result = getOcr(file, language).c_str();
+			//result->Success(flutter::EncodableValue(result));
 
-			result->Success(flutter::EncodableValue(getOcr(file, language).c_str()));
+            std::string ocrText = getOcr(file, language);
+			flutter::EncodableMap resultMap = flutter::EncodableMap();
+
+			//std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+            //auto text = converter.to_bytes(ocrText);
+
+            //std::string text = ocrText.erase(remove_if(ocrText.begin(),ocrText.end(), invalidChar), ocrText.end());
+            stripUnicode(ocrText);
+            //std::string text = to_wstring(ocrText);
+            //std::wstring text = Utf16FromUtf8(ocrText); //std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(ocrText);
+
+            resultMap[flutter::EncodableValue("ocr")] = flutter::EncodableValue(ocrText);
+            result->Success(flutter::EncodableValue(resultMap));
+
 		}
 		else if (method_call.method_name().compare("getMrz") == 0) {
 			std::string file;
@@ -312,6 +402,7 @@ namespace {
 			if (vll != arguments->end()) {
 				fileMrz = std::get<std::string>(vll->second);
 			}
+
 
 			result->Success(flutter::EncodableValue(getMrz(file, fileMrz).c_str()));
 		}
