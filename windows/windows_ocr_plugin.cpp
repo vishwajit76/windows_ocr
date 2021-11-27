@@ -1,6 +1,5 @@
 #pragma warning(disable: 4996) 
 #include "include/windows_ocr/windows_ocr_plugin.h"
-
 // This must be included before many other Windows headers.
 #include <windows.h>
 #include "NSOCR.h"
@@ -21,6 +20,8 @@
 #include <iostream>
 #include <io.h>
 #include <stdio.h>
+#include <algorithm>
+#include <functional>
 
 
 
@@ -122,13 +123,15 @@ namespace {
 			return "";
 		};
 		n = NsOCR->Img_GetImgText(ImgObj, NULL, 0, FMT_EXACTCOPY) + 1; //get length in unicode characters plus terminating NULL character
-		//txt = (wchar_t*)malloc(2 * n); //allocate memory for text
-		txt = (wchar_t*) malloc(sizeof(wchar_t) * n); //allocate memory for text
+		txt = (wchar_t*)malloc(2 * n); //allocate memory for text
+		//txt = (wchar_t*) malloc(sizeof(wchar_t) * n); //allocate memory for text
 		NsOCR->Img_GetImgText(ImgObj, txt, n, FMT_EXACTCOPY); //get text
 		NsOCR->Engine_Uninitialize(); //release all created objects and uninitialize OCR engine
 
 		std::string s = wchar2string(txt);
 		//std::string s = toUtf8(wchar2string(txt));
+
+
 
 		free(txt); //free memory
 		wcout << s.c_str() << endl;
@@ -354,11 +357,55 @@ namespace {
         str.erase(remove_if(str.begin(),str.end(), invalidChar), str.end());
     }
 
+    bool isalpha(char c) {
+       //return isprint( static_cast<unsigned char>( c ) );
+    return (c>=0 && c <128);
+    //return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+
+    }
+    bool notalpha(char c) { return ! isalpha(c); }
+
+    struct NotAlpha {
+       bool operator()(char c) { return notalpha(c); }
+    };
+
+
+     // Roshal
+      std::string strip1(std::string const& in) {
+          std::string final;
+          for(size_t i = 0; i < in.length(); i++) {
+              if(isalpha(in[i])) final += in[i];
+          }
+          return final;
+      }
+
+      // Andrey
+      std::string strip2(std::string const& s) {
+        std::string in = s;
+        in.erase(std::remove_if(in.begin(), in.end(), NotAlpha()), in.end());
+        return in;
+      }
+
+      // Frerich Raabe
+      std::string strip3( const std::string &s ) {
+        std::string result;
+        result.reserve( s.length() );
+
+        std::remove_copy_if( s.begin(),
+                             s.end(),
+                             std::back_inserter( result ),
+                             NotAlpha() );
+
+        return result;
+      }
+
+
 	void WindowsOcrPlugin::HandleMethodCall(
 		const flutter::MethodCall<flutter::EncodableValue>& method_call,
 		std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
 
 		if (method_call.method_name().compare("getOcr") == 0) {
+
 			std::string file;
 			std::string language;
 			const auto* arguments = std::get_if<flutter::EncodableMap>(method_call.arguments());
@@ -370,8 +417,9 @@ namespace {
 			if (va != arguments->end()) {
 				language = std::get<std::string>(va->second);
 			}
+
             //result->Success(flutter::EncodableValue(getOcr(file, language).c_str()));
-             //wchar_t* result = getOcr(file, language).c_str();
+            //wchar_t* result = getOcr(file, language).c_str();
 			//result->Success(flutter::EncodableValue(result));
 
             std::string ocrText = getOcr(file, language);
@@ -381,19 +429,25 @@ namespace {
             //auto text = converter.to_bytes(ocrText);
 
             //std::string text = ocrText.erase(remove_if(ocrText.begin(),ocrText.end(), invalidChar), ocrText.end());
-            stripUnicode(ocrText);
+            //stripUnicode(ocrText);
             //std::string text = to_wstring(ocrText);
             //std::wstring text = Utf16FromUtf8(ocrText); //std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(ocrText);
 
-            resultMap[flutter::EncodableValue("ocr")] = flutter::EncodableValue(ocrText);
+            //s1 - 11.80sec
+            //s2 - 11.50sec
+
+
+            resultMap[flutter::EncodableValue("ocr")] = flutter::EncodableValue(strip2(ocrText));
             result->Success(flutter::EncodableValue(resultMap));
 
 		}
 		else if (method_call.method_name().compare("getMrz") == 0) {
+
 			std::string file;
 			std::string fileMrz;
 			const auto* arguments = std::get_if<flutter::EncodableMap>(method_call.arguments());
 			auto vl = arguments->find(flutter::EncodableValue("path"));
+
 			if (vl != arguments->end()) {
 				file = std::get<std::string>(vl->second);
 			}
@@ -402,7 +456,6 @@ namespace {
 			if (vll != arguments->end()) {
 				fileMrz = std::get<std::string>(vll->second);
 			}
-
 
 			result->Success(flutter::EncodableValue(getMrz(file, fileMrz).c_str()));
 		}

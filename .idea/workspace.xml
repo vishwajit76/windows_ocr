@@ -25,13 +25,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6661a31-3d58-4b31-81cf-56e912c6f1a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/windows/windows_ocr_plugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/ephemeral/.plugin_symlinks/windows_ocr/windows/windows_ocr_plugin.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/winuwp/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/winuwp/flutter/ephemeral/.plugin_symlinks/windows_ocr/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/winuwp/flutter/ephemeral/.plugin_symlinks/windows_ocr/windows/windows_ocr_plugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/example/winuwp/flutter/ephemeral/.plugin_symlinks/windows_ocr/windows/windows_ocr_plugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/windows_ocr.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/windows_ocr.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/windows/windows_ocr_plugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/windows/windows_ocr_plugin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,22 +110,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1637424776358" />
-    <state width="1323" height="258" key="GridCell.Tab.0.bottom" timestamp="1637661677432">
+    <state width="1323" height="112" key="GridCell.Tab.0.bottom" timestamp="1638002896895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="258" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1637661677432" />
-    <state width="1323" height="258" key="GridCell.Tab.0.center" timestamp="1637661677431">
+    <state width="1323" height="112" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1638002896895" />
+    <state width="1323" height="112" key="GridCell.Tab.0.center" timestamp="1638002896895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="258" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1637661677431" />
-    <state width="1323" height="258" key="GridCell.Tab.0.left" timestamp="1637661677431">
+    <state width="1323" height="112" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1638002896895" />
+    <state width="1323" height="112" key="GridCell.Tab.0.left" timestamp="1638002896894">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="258" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1637661677431" />
-    <state width="1323" height="258" key="GridCell.Tab.0.right" timestamp="1637661677431">
+    <state width="1323" height="112" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1638002896894" />
+    <state width="1323" height="112" key="GridCell.Tab.0.right" timestamp="1638002896895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="258" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1637661677431" />
+    <state width="1323" height="112" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1638002896895" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1637422795988">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
